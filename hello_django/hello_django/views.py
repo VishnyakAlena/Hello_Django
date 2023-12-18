@@ -5,4 +5,6 @@ def about(request):
 def home(request):
     return HttpResponse('This is my home')
 def reverse(request):
-    return render(request, 'reverse.html')
+    user_text = request.GET['username']
+    reverse = user_text[::-1]
+    return render(request, 'reverse.html', {'word': reverse})
